@@ -13,7 +13,7 @@ class Base(DeclarativeBase):
     pass
 
 # Assumes POSTGRES_URL string from .env in vercel
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('POSTGRES_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('POSTGRES_WORKING')
 app.config['SECRET_KEY'] = os.getenv('FLASK_KEY')
 db = SQLAlchemy(model_class = Base)
 db.init_app(app)
