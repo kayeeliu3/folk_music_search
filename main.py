@@ -2,8 +2,10 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, Text
 from sqlalchemy.orm import DeclarativeBase
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
 app = Flask(__name__)
 
 # Init database
@@ -11,8 +13,8 @@ class Base(DeclarativeBase):
     pass
 
 # Assumes POSTGRES_URL string from .env in vercel
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('POSTGRES_URL')
-app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('POSTGRES_URL')
+app.config['SECRET_KEY'] = os.getenv('FLASK_KEY')
 db = SQLAlchemy(model_class = Base)
 db.init_app(app)
 
