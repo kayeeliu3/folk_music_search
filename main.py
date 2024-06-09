@@ -23,7 +23,6 @@ class Tune(db.Model):
     tune_id = db.Column(db.Integer, primary_key = True)
     tune_name = db.Column(db.String)
     tune_key = db.Column(db.String)
-    tune_mode = db.Column(db.String)
     tune_type = db.Column(db.String)
 
 # Create database tables
@@ -32,9 +31,18 @@ with app.app_context():
 
 ### ENDPOINTS
 
+class TestTune():
+    def __init__(self, id, name, key, mode, type):
+        self.id = id
+        self.name = name
+        self.key = key 
+        self.type = type
+
+tunes = [] # TEST
+
 @app.route('/')
 def default_route():
-    return render_template("index.html")
+    return render_template("index.html", tunes = tunes)
 
 if __name__ == "__main__":
     app.run(debug = False)
