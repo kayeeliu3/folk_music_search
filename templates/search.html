@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block navbar %}
+<li class="nav-item">
+  <a class="nav-link" href="/"
+    >Home
+    <span class="visually-hidden">(current)</span>
+  </a>
+</li>
+<li class="nav-item active">
+  <a class="nav-link" href="search">Search</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="favourites">Favourites</a>
+</li>
+{% endblock %} {% block content %}
+<div class="container text-center">
+  <div class="row">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Search</span
+      >
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+  </div>
+  <div class="row">
+    {% for tune in tunes %}
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem">
+      <div class="card-body">
+        <h4 class="card-title">{{ tune.name }}: {{ tune.type }}</h4>
+        <p class="card-text">{{ tune.key }}</p>
+        <a href="#" class="card-link">Session link</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

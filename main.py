@@ -44,5 +44,13 @@ tunes = [] # TEST
 def default_route():
     return render_template("index.html", tunes = tunes)
 
+@app.route('/search')
+def search_route():
+    return render_template("search.html")
+
+@app.route('/favourites')
+def favourites_route():
+    return render_template("favourites.html")
+
 if __name__ == "__main__":
     app.run(debug = False)

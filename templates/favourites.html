@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block navbar %}
-<li class="nav-item active">
+<li class="nav-item">
   <a class="nav-link" href="/"
     >Home
     <span class="visually-hidden">(current)</span>
@@ -8,11 +8,17 @@
 <li class="nav-item">
   <a class="nav-link" href="search">Search</a>
 </li>
-<li class="nav-item">
+<li class="nav-item active">
   <a class="nav-link" href="favourites">Favourites</a>
 </li>
 {% endblock %} {% block content %}
 <div class="container text-center">
-  <div class="row">Search for folk tunes by tune type and key.</div>
+  <div class="row">
+    <div class="position-relative">
+      <div class="position-absolute top-50 start-50 translate-middle">
+        Placeholder favourites.
+      </div>
+    </div>
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}
