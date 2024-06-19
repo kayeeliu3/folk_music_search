@@ -30,9 +30,13 @@
     {% for tune in tunes %}
     <div class="card text-white bg-primary mb-3" style="max-width: 20rem">
       <div class="card-body">
-        <h4 class="card-title">{{ tune.name }}: {{ tune.type }}</h4>
-        <p class="card-text">{{ tune.key }}</p>
-        <a href="#" class="card-link">Session link</a>
+        <h4 class="card-title">{{ tune.tune_name }}</h4>
+        <p class="card-text">{{ tune.tune_key }} : {{ tune.tune_type }}</p>
+        <a
+          href="https://thesession.org/tunes/{{ tune.tune_id }}"
+          class="card-link"
+          >Session link</a
+        >
       </div>
     </div>
     {% endfor %}
